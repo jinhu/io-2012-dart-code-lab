@@ -1,7 +1,7 @@
 library chatclient;
 
 import 'dart:html';
-import 'dart:json';
+import 'dart:json' as JSON;
 
 ChatConnection chatConnection;
 MessageInput messageInput;
