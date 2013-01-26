@@ -1,6 +1,6 @@
 library serverutils;
 
-import 'dart:isolate';
+import 'dart:async';
 
 time(msg, callback()) {
   var sw = new Stopwatch()..start();
