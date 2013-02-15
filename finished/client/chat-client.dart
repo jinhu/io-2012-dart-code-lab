@@ -2,6 +2,7 @@ library chatclient;
 
 import 'dart:html';
 import 'dart:json' as JSON;
+import 'dart:async';
 
 ChatConnection chatConnection;
 MessageInput messageInput;
@@ -44,7 +45,7 @@ class ChatConnection {
     scheduleReconnect() {
       chatWindow.displayNotice('web socket closed, retrying in $retrySeconds seconds');
       if (!encounteredError) {
-        window.setTimeout(() => _init(retrySeconds*2), 1000*retrySeconds);
+        new Timer(1000*retrySeconds, (_) => _init(retrySeconds*2));
       }
       encounteredError = true;
     }
