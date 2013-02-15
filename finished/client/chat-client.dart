@@ -49,14 +49,14 @@ class ChatConnection {
       encounteredError = true;
     }
 
-    webSocket.on.open.add((e) {
+    webSocket.onOpen.listen((e) {
       chatWindow.displayNotice('Connected');
     });
 
-    webSocket.on.close.add((e) => scheduleReconnect());
-    webSocket.on.error.add((e) => scheduleReconnect());
+    webSocket.onClose.listen((e) => scheduleReconnect());
+    webSocket.onError.listen((e) => scheduleReconnect());
 
-    webSocket.on.message.add((MessageEvent e) {
+    webSocket.onMessage.listen((MessageEvent e) {
       print('received message ${e.data}');
       _receivedEncodedMessage(e.data);
     });
@@ -79,7 +79,7 @@ class MessageInput extends View<InputElement> {
   MessageInput(InputElement elem) : super(elem);
 
   bind() {
-    elem.on.change.add((e) {
+    elem.onChange.listen((e) {
       chatConnection.send(usernameInput.username, message);
       chatWindow.displayMessage(message, usernameInput.username);
       elem.value = '';
@@ -104,7 +104,7 @@ class UsernameInput extends View<InputElement> {
   UsernameInput(InputElement elem) : super(elem);
 
   bind() {
-    elem.on.change.add((e) => _onUsernameChange());
+    elem.onChange.listen((e) => _onUsernameChange());
   }
 
   _onUsernameChange() {

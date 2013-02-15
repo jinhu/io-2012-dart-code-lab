@@ -52,7 +52,7 @@ class MessageInput extends View<InputElement> {
   MessageInput(InputElement elem) : super(elem);
 
   bind() {
-    elem.on.change.add((e) {
+    elem.onChange.listen((e) {
       chatConnection.send(usernameInput.username, message);
       chatWindow.displayMessage(message, usernameInput.username);
       elem.value = '';
@@ -77,7 +77,7 @@ class UsernameInput extends View<InputElement> {
   UsernameInput(InputElement elem) : super(elem);
 
   bind() {
-    elem.on.change.add((e) => _onUsernameChange());
+    elem.onChange.listen((e) => _onUsernameChange());
   }
 
   _onUsernameChange() {
