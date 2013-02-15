@@ -1,5 +1,6 @@
 library chatclient;
 
+import 'dart:async';
 import 'dart:html';
 import 'dart:json' as JSON;
 

@@ -1,5 +1,6 @@
 library chatclient;
 
+import 'dart:async';
 import 'dart:html';
 
 // Step 5, import the JSON library
