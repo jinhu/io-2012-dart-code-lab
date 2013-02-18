@@ -45,7 +45,8 @@ class ChatConnection {
     scheduleReconnect() {
       chatWindow.displayNotice('web socket closed, retrying in $retrySeconds seconds');
       if (!encounteredError) {
-        new Timer(1000*retrySeconds, (_) => _init(retrySeconds*2));
+        new Timer(new Duration(seconds:retrySeconds),
+            () => _init(retrySeconds*2));
       }
       encounteredError = true;
     }
