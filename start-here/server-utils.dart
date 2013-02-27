@@ -10,6 +10,6 @@ time(msg, callback()) {
 }
 
 // runs the callback on the event loop at the next opportunity
-queue(callback()) {
-  new Timer(0, (t) => callback());
+Future queue(callback()) {
+  return new Future.delayed(0, callback);
 }
