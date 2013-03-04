@@ -11,5 +11,5 @@ time(msg, callback()) {
 
 // runs the callback on the event loop at the next opportunity
 Future queue(callback()) {
-  return new Future.delayed(0, callback);
+  return new Future.delayed(Duration.ZERO, callback);
 }

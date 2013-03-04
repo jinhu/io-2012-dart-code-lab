@@ -60,17 +60,10 @@ class ChatHandler {
     
     print('new ws conn');
     webSocketConnections.add(conn);
-    conn.listen((event) {
-      if (event is MessageEvent) {
-        onMessage(event.data);
-      } else if (event is CloseEvent) {
-        print('conn is closed');
-        webSocketConnections.remove(conn);
-      }
-    },
-    onError: (error) => webSocketConnections.remove(conn),
-    onDone: () => webSocketConnections.remove(conn));
-
+    conn.listen(onMessage,
+      onDone: () => webSocketConnections.remove(conn),
+      onError: (e) => webSocketConnections.remove(conn)
+    );
 
   }
 }
