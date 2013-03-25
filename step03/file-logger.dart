@@ -11,10 +11,10 @@ startLogging() {
     if (logFile == null) {
       print("Opening file $msg");
       logFile = new File(msg);
-      out = logFile.openWrite(FileMode.APPEND);
+      out = logFile.openWrite(mode: FileMode.APPEND);
     } else {
       time('write to file', () {
-        out.addString("${new DateTime.now()} : $msg\n");
+        out.write("${new DateTime.now()} : $msg\n");
       });
     }
   });

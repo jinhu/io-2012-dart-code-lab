@@ -64,7 +64,6 @@ class ChatHandler {
       onDone: () => webSocketConnections.remove(conn),
       onError: (e) => webSocketConnections.remove(conn)
     );
-
   }
 }
 
