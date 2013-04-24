@@ -52,7 +52,7 @@ class ChatHandler {
       webSocketConnections.forEach((connection) {
         if (conn != connection) {
           print('queued msg to be sent');
-          queue(() => connection.send(message));
+          queue(() => connection.add(message));
         }
       });
       time('send to isolate', () => log.log(message));
